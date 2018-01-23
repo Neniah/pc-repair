@@ -2,6 +2,23 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
   body
+  nav.navbar.navbar-expand-md.navbar-dark.bg-dark
+    a.navbar-brand(href='#') PCRepair
+    button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarCollapse', aria-controls='navbarCollapse', aria-expanded='false', aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbarCollapse.collapse.navbar-collapse
+      ul.navbar-nav.mr-auto
+        li(class=title=='home' ? 'active' : undefined)
+          a.nav-link(href='/') Home
+        li(class=title=='services' ? 'active' : undefined)
+          a.nav-link(href='/services') Services
+        li(class=title=='about' ? 'active' : undefined)
+          a.nav-link(href='/about') About
+        li(class=title=='contact' ? 'active' : undefined)
+          a.nav-link(href='/contact') Contact
+
+
+  .container
     block content
