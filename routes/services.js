@@ -3,19 +3,17 @@ var router = express.Router();
 var fs = require('fs');
 
 var results;
-fs.readFile('json/services.json', 'utf8', (err, data) => {
+fs.readFile('json/services.json', 'utf8', function(err, data){
   if(err){
-    return err;
+    throw err;
   } else {
     results = JSON.parse(data);
   }
 });
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('services',
-  {
-    title: 'Services'
+  res.render('services', {
+    title: 'Services',
     services: results
   });
 });
